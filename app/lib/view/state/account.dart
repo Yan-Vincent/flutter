@@ -6,19 +6,19 @@ class AccountState extends GetxController {
 
   final account = Account().obs;
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  // }
 
   @override
   void onReady() {
-    super.onReady();
+    //super.onReady();
   }
 
   @override
   void onClose() {
-    super.onClose();
+    //super.onClose();
   }
 
   /*查找账户*/

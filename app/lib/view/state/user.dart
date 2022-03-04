@@ -6,19 +6,19 @@ class UserState extends GetxController {
 
   List<User> userList = [];
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  // }
 
   @override
   void onReady() {
-    super.onReady();
+    //super.onReady();
   }
 
   @override
   void onClose() {
-    super.onClose();
+    //super.onClose();
   }
 
   /*查找用户*/
