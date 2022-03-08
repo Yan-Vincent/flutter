@@ -1,9 +1,9 @@
-class Account {
-  Account({this.id, this.name});
+class AccountModel {
+  AccountModel({this.id, this.name});
   int? id;
   String? name;
 
-  Account.fromJson(Map<String, dynamic> json) {
+  AccountModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
   }
