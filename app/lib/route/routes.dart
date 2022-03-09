@@ -13,9 +13,7 @@ class Routes {
     UserRoute.pages(),
   ];
 
-  static GetPage error() {
-    return ErrorRoute.pages();
-  }
+  static final GetPage error = ErrorRoute.pages();
 
   static String init() {
     return SplashRoute.home;

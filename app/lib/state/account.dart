@@ -4,7 +4,7 @@ import '../controller/account.dart';
 
 class AccountState extends GetxController {
   static AccountState get to => Get.find();
-  final account = AccountModel().obs;
+  AccountModel account = AccountModel();
 
   // @override
   // void onInit() {
@@ -34,9 +34,8 @@ class AccountState extends GetxController {
   Future createAccount() async {
     Map<String, dynamic> _data = await AccountController.createAccount();
     if(_data['code'] == 200) {
-      account.update((val) {
-        account.value = AccountModel.fromJson(_data['data']);
-      });
+      account = AccountModel.fromJson(_data['data']);
+      update();
     }
   }
 }
