@@ -12,7 +12,21 @@ class SplashHome extends GetView {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('启动屏'),
+            Text('title'.tr),
+            ElevatedButton(
+              child: const Text('切换中文'),
+              onPressed: () {
+                var locale = const Locale('zh', 'CN');
+                Get.updateLocale(locale);
+              },
+            ),
+            ElevatedButton(
+              child: const Text('切换英文'),
+              onPressed: () {
+                var locale = const Locale('en', 'US');
+                Get.updateLocale(locale);
+              },
+            ),
             ElevatedButton(
               child: const Text('进入首页'),
               onPressed: () => Get.offAllNamed('/appHome'),
