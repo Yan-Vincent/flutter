@@ -7,7 +7,7 @@ class ErrorRoute {
   static GetPage pages() {
     return GetPage(
       name: home,
-      page: ()=> const ErrorHome(),
+      page: () => const ErrorHome(),
     );
   }
 }

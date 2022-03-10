@@ -7,7 +7,7 @@ class SplashRoute {
   static GetPage pages() {
     return GetPage(
       name: home,
-      page: ()=> const SplashHome(),
+      page: () => const SplashHome(),
     );
   }
 }

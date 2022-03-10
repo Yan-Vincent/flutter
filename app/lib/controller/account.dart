@@ -3,7 +3,7 @@ class AccountController {
 
   /*创建账户*/
   static Future<Map<String, dynamic>> createAccount() async {
-    return await Future.delayed(const Duration(seconds: 1), ()=> {
+    return await Future.delayed(const Duration(seconds: 1), () => {
       'code': 200,
       'data': {
         'id': 10000,

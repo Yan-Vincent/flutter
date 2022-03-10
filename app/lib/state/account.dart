@@ -6,21 +6,6 @@ class AccountState extends GetxController {
   static AccountState get to => Get.find();
   AccountModel account = AccountModel();
 
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  // }
-  //
-  // @override
-  // void onReady() {
-  //   super.onReady();
-  // }
-  //
-  // @override
-  // void onClose() {
-  //   super.onClose();
-  // }
-
   /*查找账户*/
   void searchAccount() {}
 

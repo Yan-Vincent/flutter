@@ -7,7 +7,7 @@ class AccountRoute {
   static GetPage pages() {
     return GetPage(
       name: home,
-      page: ()=> const AccountHome(),
+      page: () => const AccountHome(),
     );
   }
 }

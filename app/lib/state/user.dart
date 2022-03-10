@@ -6,21 +6,6 @@ class UserState extends GetxController {
   static UserState get to => Get.find();
   List<UserModel> userList = [];
 
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  // }
-  //
-  // @override
-  // void onReady() {
-  //   super.onReady();
-  // }
-  //
-  // @override
-  // void onClose() {
-  //   super.onClose();
-  // }
-
   /*查找用户*/
   void searchUser() {}
 
