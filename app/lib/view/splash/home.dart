@@ -15,7 +15,7 @@ class SplashHome extends GetView {
             const Text('启动屏'),
             ElevatedButton(
               child: const Text('进入首页'),
-              onPressed: ()=> Get.offAllNamed('/appHome'),
+              onPressed: () => Get.offAllNamed('/appHome'),
             ),
           ],
         ),
