@@ -8,14 +8,14 @@ class Layout extends StatelessWidget {
     this.bottomNavigationBar,
   }):super(key:key);
   final PreferredSizeWidget? appBar;
-  final Widget? body;
+  final Widget body;
   final Widget? bottomNavigationBar;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar,
-      body: body,
+      body: SafeArea(child: body),
       bottomNavigationBar: bottomNavigationBar,
     );
   }
