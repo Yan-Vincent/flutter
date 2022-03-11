@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:app/widget/layout.dart';
+import 'package:app/utils/utils.dart';
 
 class SplashHome extends GetView {
   const SplashHome({Key? key}):super(key:key);
@@ -31,6 +32,7 @@ class SplashHome extends GetView {
             ElevatedButton(
               child: const Text('切换主题'),
               onPressed: () {
+                H.setAndroidSystemUi(!Get.isDarkMode);
                 Get.changeTheme(
                     Get.isDarkMode ? FlexThemeData.light(
                       scheme: FlexScheme.rosewood,
