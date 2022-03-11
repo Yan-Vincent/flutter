@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:app/widget/layout.dart';
 
 class SplashHome extends GetView {
@@ -25,6 +26,18 @@ class SplashHome extends GetView {
               onPressed: () {
                 var locale = const Locale('en', 'US');
                 Get.updateLocale(locale);
+              },
+            ),
+            ElevatedButton(
+              child: const Text('切换主题'),
+              onPressed: () {
+                Get.changeTheme(
+                    Get.isDarkMode ? FlexThemeData.light(
+                      scheme: FlexScheme.rosewood,
+                    ) : FlexThemeData.dark(
+                      scheme: FlexScheme.rosewood,
+                    )
+                );
               },
             ),
             ElevatedButton(

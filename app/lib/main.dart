@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import './route/routes.dart';
 import './translation/translation.dart';
 
@@ -15,9 +16,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       initialRoute: Routes.init(),
       getPages: Routes.pages,
       unknownRoute: Routes.error,
@@ -26,9 +24,12 @@ class MyApp extends StatelessWidget {
         if(routing?.current == '/appHome') {
         }
       },
-      translations: Translation(),
       locale: ui.window.locale,//语言逻辑：本地?ui.window.locale:本地
+      translations: Translation(),
       fallbackLocale: const Locale('zh', 'CN'),
+      themeMode: ThemeMode.system,//配色逻辑：本地?ThemeMode.system:本地
+      theme: FlexThemeData.light(scheme: FlexScheme.rosewood),
+      darkTheme: FlexThemeData.dark(scheme: FlexScheme.rosewood),
     );
   }
 }

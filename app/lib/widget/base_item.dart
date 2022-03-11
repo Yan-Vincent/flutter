@@ -15,7 +15,7 @@ class BaseItem extends StatelessWidget {
       margin: const EdgeInsets.all(8.0),
       padding: const EdgeInsets.all(16.0),
       decoration: const BoxDecoration(
-        color: Colors.white,
+        // color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(4.0)),
         boxShadow: [
           BoxShadow(
