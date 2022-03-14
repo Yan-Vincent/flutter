@@ -4,11 +4,11 @@ import 'package:get/get.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import './route/routes.dart';
 import './translation/translation.dart';
-import './utils/utils.dart';
+import './utils/utils.dart' as h;
 
 void main() {
   runApp(const MyApp());
-  H.setAndroidSystemUi(Get.isDarkMode);
+  h.System.setUI(Get.isDarkMode);
 }
 
 class MyApp extends StatelessWidget {
