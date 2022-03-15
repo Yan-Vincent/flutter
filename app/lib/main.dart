@@ -5,6 +5,7 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 import './route/routes.dart';
 import './translation/translation.dart';
 import './utils/utils.dart' as h;
+import './config/base_url.dart';
 
 void main() {
   runApp(const MyApp());
