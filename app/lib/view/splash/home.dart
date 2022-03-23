@@ -46,6 +46,10 @@ class SplashHome extends GetView {
               child: const Text('进入首页'),
               onPressed: () => Get.offAllNamed('/appHome'),
             ),
+            ElevatedButton(
+              child: const Text('接口测试'),
+              onPressed: () => h.Http.get('/api/followup/doctor/group/list'),
+            ),
           ],
         ),
       ),

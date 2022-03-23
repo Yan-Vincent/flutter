@@ -1,5 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 class BaseDio with DioMixin implements Dio {
   BaseDio({
