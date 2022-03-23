@@ -1,13 +1,18 @@
-import './base_http.dart';
+import './base_dio.dart';
 
-class Http {
-  static void init({
+class BaseHttp {
+  factory BaseHttp() => _instance;
+  static final BaseHttp _instance = BaseHttp._internal();
+  BaseHttp._internal();
+
+  late BaseDio _baseDio;
+  void init({
     String baseUrl = '',
     int? connectTimeout,
     int? sendTimeout,
     int? receiveTimeout,
   }) {
-    BaseHttp().init(
+    _baseDio = BaseDio(
       baseUrl: baseUrl,
       connectTimeout: connectTimeout,
       sendTimeout: sendTimeout,

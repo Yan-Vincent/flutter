@@ -10,7 +10,7 @@ import './config/base_url.dart';
 void main() {
   runApp(const MyApp());
   h.System.setUI(Get.isDarkMode);
-  h.Http(baseUrl: baseUrl);
+  h.Http.init(baseUrl: baseUrl);
 }
 
 class MyApp extends StatelessWidget {
