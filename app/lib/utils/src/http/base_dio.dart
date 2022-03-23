@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:dio/adapter.dart';
 import 'package:flutter/foundation.dart';
 
 class BaseDio with DioMixin implements Dio {
@@ -14,6 +15,7 @@ class BaseDio with DioMixin implements Dio {
       sendTimeout: sendTimeout,
       receiveTimeout: receiveTimeout,
     );
+    httpClientAdapter = DefaultHttpClientAdapter();
     if(kDebugMode) {
       interceptors.add(LogInterceptor(
         requestBody: true,
