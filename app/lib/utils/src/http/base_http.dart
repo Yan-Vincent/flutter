@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import './base_dio.dart';
+import './http_response.dart';
 
 class BaseHttp {
   factory BaseHttp() => _instance;
@@ -21,7 +22,7 @@ class BaseHttp {
     );
   }
 
-  Future<Response> request(String path, {
+  Future<HttpResponse> request(String path, {
     Options? options,
     Map<String, dynamic>? queryParameters,
     data,
@@ -29,14 +30,25 @@ class BaseHttp {
     ProgressCallback? onReceiveProgress,
     CancelToken? cancelToken,
   }) async {
-    return await _baseDio.request(
-      path,
-      options: options,
-      queryParameters: queryParameters,
-      data: data,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-      cancelToken: cancelToken,
-    );
+    try {
+      Response response = await _baseDio.request(
+        path,
+        options: options,
+        queryParameters: queryParameters,
+        data: data,
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
+        cancelToken: cancelToken,
+      );
+      return HttpResponse(
+        statusCode: response.statusCode,
+        data: response.data,
+      );
+    } on DioError catch (e) {
+      return HttpResponse(
+        statusCode: e.response?.statusCode,
+        data: e.response?.data,
+      );
+    }
   }
 }

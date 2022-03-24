@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import './base_http.dart';
+import './http_response.dart';
 
 class Http {
   static void init({
@@ -16,7 +17,7 @@ class Http {
     );
   }
 
-  static Future<Response> get(String path, {
+  static Future<HttpResponse> get(String path, {
     Options? options,
     Map<String, dynamic>? queryParameters,
     ProgressCallback? onReceiveProgress,
@@ -31,7 +32,7 @@ class Http {
     );
   }
 
-  static Future<Response> post(String path, {
+  static Future<HttpResponse> post(String path, {
     Options? options,
     Map<String, dynamic>? queryParameters,
     data,
