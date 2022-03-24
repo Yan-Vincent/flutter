@@ -48,7 +48,9 @@ class SplashHome extends GetView {
             ),
             ElevatedButton(
               child: const Text('接口测试'),
-              onPressed: () => h.Http.get('/api/followup/doctor/group/list'),
+              onPressed: () async {
+                var data = await h.Http.get('/api/followup/doctor/group/list');
+              },
             ),
           ],
         ),

@@ -49,4 +49,8 @@ class Http {
       cancelToken: cancelToken,
     );
   }
+
+  static CancelToken token() {
+    return CancelToken();
+  }
 }
