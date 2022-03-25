@@ -2,15 +2,16 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:app/utils/utils.dart';
 import './route/routes.dart';
 import './translation/translation.dart';
-import './utils/utils.dart' as h;
 import './config/base_url.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
-  h.System.setUI(Get.isDarkMode);
-  h.Http.init(baseUrl: baseUrl);
+  await Flutter.init();
+  System.setUI(Get.isDarkMode);
+  Http.init(baseUrl: baseUrl);
 }
 
 class MyApp extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:app/utils/utils.dart';
 import 'package:app/widget/layout.dart';
-import 'package:app/utils/utils.dart' as h;
 
 class SplashHome extends GetView {
   const SplashHome({Key? key}):super(key:key);
@@ -32,7 +32,7 @@ class SplashHome extends GetView {
             ElevatedButton(
               child: const Text('切换主题'),
               onPressed: () {
-                h.System.setUI(!Get.isDarkMode);
+                System.setUI(!Get.isDarkMode);
                 Get.changeTheme(
                     Get.isDarkMode ? FlexThemeData.light(
                       scheme: FlexScheme.rosewood,
@@ -49,7 +49,7 @@ class SplashHome extends GetView {
             ElevatedButton(
               child: const Text('接口测试'),
               onPressed: () async {
-                var response = await h.Http.get('/api/followup/doctor/group/list');
+                var response = await Http.get('/api/followup/doctor/group/list');
                 print('statusCode:${response.statusCode}-----data:${response.data}');
               },
             ),
