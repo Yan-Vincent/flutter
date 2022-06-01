@@ -1,61 +1,54 @@
 part of flutter;
 
-enum SharedHandle {
-  remove,
-  get,
-  set,
-}
-enum SharedType {
-  int,
-  bool,
-  double,
-  string,
-  stringList,
-}
+class Shared {
+  factory Shared() => _shared;
+  static late final Shared _shared = Shared._();
+  Shared._();
+  static late final SharedPreferences _sharedPreferences;
 
-class _Shared {
-  late SharedPreferences _shared;
-
-  Future<void> set(SharedType sharedType, String key, dynamic value) async {
-    switch (sharedType) {
-      case SharedType.int:
-        await _shared.setInt(key, value);
+  static Future set<T>(String key, T value) async {
+    String type = value.runtimeType.toString();
+    switch (type) {
+      case 'bool':
+        await _sharedPreferences.setBool(key, value as bool);
         break;
-      case SharedType.bool:
-        await _shared.setBool(key, value);
+      case 'double':
+        await _sharedPreferences.setDouble(key, value as double);
         break;
-      case SharedType.double:
-        await _shared.setDouble(key, value);
+      case 'int':
+        await _sharedPreferences.setInt(key, value as int);
         break;
-      case SharedType.string:
-        await _shared.setString(key, value);
+      case 'String':
+        await _sharedPreferences.setString(key, value as String);
         break;
-      case SharedType.stringList:
-        await _shared.setStringList(key, value);
+      case 'List<String>':
+        await _sharedPreferences.setStringList(key, value as List<String>);
+        break;
+      default:
+        await _sharedPreferences.setString(key, json.encode(value));
         break;
     }
   }
 
-  dynamic get(SharedType sharedType, String key) {
-    switch (sharedType) {
-      case SharedType.int:
-        return _shared.getInt(key);
-      case SharedType.bool:
-        return _shared.getBool(key);
-      case SharedType.double:
-        return _shared.getDouble(key);
-      case SharedType.string:
-        return _shared.getString(key);
-      case SharedType.stringList:
-        return _shared.getStringList(key);
+  static dynamic get<T>(String key) {
+    dynamic value = _sharedPreferences.get(key);
+    try {
+      return json.decode(value);
+    } catch (e) {
+      return value;
     }
   }
 
-  Future<void> remove(String key) async {
-    await _shared.remove(key);
+  static Future<bool> remove(String key) async {
+    return await _sharedPreferences.remove(key);
   }
 
-  Future<void> init() async {
-    _shared = await SharedPreferences.getInstance();
+  static Future<bool> clean() async {
+    return await _sharedPreferences.clear();
+  }
+
+  static Future<Shared> init() async {
+    _sharedPreferences = await SharedPreferences.getInstance();
+    return _shared;
   }
 }

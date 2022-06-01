@@ -7,11 +7,15 @@ import './route/routes.dart';
 import './translation/translation.dart';
 import './config/base_url.dart';
 
-Future<void> main() async {
-  runApp(const MyApp());
-  await Flutter.init();
+Future<void> init() async {
+  await Shared.init();
   System.setUI(Get.isDarkMode);
   Http.init(baseUrl: baseUrl);
+}
+
+Future<void> main() async {
+  runApp(const MyApp());
+  await init();
 }
 
 class MyApp extends StatelessWidget {
